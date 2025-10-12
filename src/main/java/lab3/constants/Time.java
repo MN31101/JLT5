@@ -1,4 +1,4 @@
-package lab3.skipass;
+package lab3.constants;
 
 import java.time.LocalTime;
 

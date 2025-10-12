@@ -1,8 +1,8 @@
-package lab3.skipass.strategy;
+package lab3.strategy;
 
-import lab3.skipass.Lift;
-import lab3.skipass.SkiPass;
-import lab3.skipass.Time;
+import lab3.constants.Lift;
+import lab3.SkiPass;
+import lab3.constants.Time;
 
 import java.time.DayOfWeek;
 import java.time.LocalDateTime;
@@ -22,9 +22,11 @@ public class OnWorkdayStrategy implements Strategy {
 
         DayOfWeek day = now.getDayOfWeek();
         boolean isWorkday = day != DayOfWeek.SATURDAY && day != DayOfWeek.SUNDAY;
+        if (!isWorkday) return false;
 
-        if (!isWorkday || now.isAfter(skiPass.getExpiresAt())) return false;
-
+        if (now.isBefore(skiPass.getStartedAt()) || now.isAfter(skiPass.getExpiresAt())) {
+            return false;
+        }
         LocalTime nowTime = now.toLocalTime();
         return !nowTime.isBefore(skiPass.getTimeType().getStartTime()) &&
                 !nowTime.isAfter(skiPass.getTimeType().getEndTime());

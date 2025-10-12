@@ -1,4 +1,4 @@
-package lab3.skipass;
+package lab3.constants;
 
 public enum Lift {
     TEN(10),

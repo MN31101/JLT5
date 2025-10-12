@@ -1,8 +1,8 @@
-package lab3.skipass.strategy;
+package lab3.strategy;
 
-import lab3.skipass.Lift;
-import lab3.skipass.SkiPass;
-import lab3.skipass.Time;
+import lab3.constants.Lift;
+import lab3.SkiPass;
+import lab3.constants.Time;
 
 import java.time.DayOfWeek;
 import java.time.LocalDateTime;

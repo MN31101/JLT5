@@ -1,7 +1,5 @@
 package lab3;
 
-import lab3.skipass.SkiPass;
-
 import java.time.LocalDateTime;
 import java.util.*;
 import java.util.stream.Collectors;
@@ -38,7 +36,7 @@ public class Turnstile {
             return log(pass, false, now);
         }
 
-        boolean canAccess = pass.getStrategy().canAccess(pass, now);
+        boolean canAccess = pass.canAccess(now);
         if (!canAccess) {
             System.out.println("Time is up: " + pass.getType());
             return log(pass, false, now);

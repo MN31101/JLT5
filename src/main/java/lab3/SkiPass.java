@@ -1,6 +1,7 @@
-package lab3.skipass;
+package lab3;
 
-import lab3.skipass.strategy.Strategy;
+import lab3.constants.Time;
+import lab3.strategy.Strategy;
 
 import java.time.LocalDateTime;
 import java.util.UUID;

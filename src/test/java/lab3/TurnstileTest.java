@@ -1,9 +1,11 @@
 package lab3;
 
-import lab3.skipass.Lift;
-import lab3.skipass.SkiPass;
-import lab3.skipass.Time;
-import lab3.skipass.strategy.*;
+import lab3.constants.Lift;
+import lab3.constants.Time;
+import lab3.strategy.OnSeasonStrategy;
+import lab3.strategy.OnWeekendStrategy;
+import lab3.strategy.OnWorkdayStrategy;
+import lab3.strategy.Strategy;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -54,7 +56,8 @@ public class TurnstileTest {
 
         LocalDateTime nextWorkday = getNextWorkday();
 
-        SkiPass morningPass = strategy.newSkiPass(nextWorkday, Lift.TEN, Time.MORNING);
+        LocalDateTime startTime = nextWorkday.withHour(0).withMinute(0).withSecond(0);
+        SkiPass morningPass = strategy.newSkiPass(startTime, Lift.TEN, Time.MORNING);
 
         LocalDateTime testTime = nextWorkday.withHour(10).withMinute(0);
         boolean allowed = strategy.canAccess(morningPass, testTime);
@@ -68,13 +71,15 @@ public class TurnstileTest {
 
         LocalDateTime nextWorkday = getNextWorkday();
 
-        SkiPass eveningPass = strategy.newSkiPass(nextWorkday, Lift.TEN, Time.EVENING);
+        LocalDateTime startTime = nextWorkday.withHour(0).withMinute(0).withSecond(0);
+        SkiPass eveningPass = strategy.newSkiPass(startTime, Lift.TEN, Time.EVENING);
 
         LocalDateTime testTime = nextWorkday.withHour(10).withMinute(0);
         boolean denied = strategy.canAccess(eveningPass, testTime);
 
         assertFalse(denied, "Workday EVENING pass should deny access during morning hours");
     }
+
 
     @Test
     void testWeekendPassAllowedOnSaturday() {
@@ -111,16 +116,17 @@ public class TurnstileTest {
 
     @Test
     void testLiftCountDecreasesAfterAccess() {
-        Strategy strategy = new OnWorkdayStrategy();
+        Strategy strategy = new OnSeasonStrategy();
 
-        LocalDateTime nextWorkday = getNextWorkday().withHour(10).withMinute(0);
+        LocalDateTime now = LocalDateTime.now();
+        LocalDateTime startTime = now.minusDays(1);
 
         SkiPass liftPass = new SkiPass(
-                "WORKDAY",
-                nextWorkday,
-                nextWorkday.plusDays(1),
+                "SEASON",
+                startTime,
+                now.plusDays(90),
                 2,
-                Time.DAY1,
+                Time.SEASON,
                 strategy
         );
 
@@ -175,11 +181,9 @@ public class TurnstileTest {
                 strategy
         );
 
-        // 2 успішних проходи
         assertTrue(turnstile.tryPass(validPass));
         assertTrue(turnstile.tryPass(validPass));
 
-        // 1 відмовлений прохід
         assertFalse(turnstile.tryPass(expiredPass));
 
         String generalStats = turnstile.getData();
