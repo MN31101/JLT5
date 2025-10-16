@@ -38,7 +38,9 @@ public class RBtree<E extends Comparable<E>> {
         NIL.color = BLACK;
         root = NIL;
     }
-
+    public Node<E> getRoot() {
+        return root;
+    }
     private void leftRotation(Node<E> x) {
         /*
         x               y
@@ -105,76 +107,82 @@ public class RBtree<E extends Comparable<E>> {
         }
         return null;
     }
-    private void insert(E value){
+    public void insert(E value) {
         Node<E> newNode = new Node<>(value);
-        Node<E> parent = null;
-        Node<E> root = this.root;
+        newNode.left = NIL;
+        newNode.right = NIL;
 
-        while (root!= NIL){
-            parent = root;
-            if (newNode.value.compareTo(root.value) < 0){
-                root = root.left;
-            }else if(newNode.value.compareTo(root.value)>0){
-                root =root.right;
-            }else {
+        Node<E> parent = null;
+        Node<E> current = this.root;
+
+        while (current != NIL) {
+            parent = current;
+            if (newNode.value.compareTo(current.value) < 0) {
+                current = current.left;
+            } else if (newNode.value.compareTo(current.value) > 0) {
+                current = current.right;
+            } else {
                 throw new IllegalArgumentException("BST already contains a node with key " + value);
             }
         }
 
         newNode.parent = parent;
 
-        if(parent == null){
+        if (parent == null) {
             this.root = newNode;
-        }else if(newNode.value.compareTo(parent.value)<0){
+        } else if (newNode.value.compareTo(parent.value) < 0) {
             parent.left = newNode;
-        }else {
+        } else {
             parent.right = newNode;
         }
+
         fixInsert(newNode);
     }
+
     private void fixInsert(Node<E> node) {
-        Node<E> parent = node.parent;
+        while (node != root && node.parent.color == RED) {
+            Node<E> parent = node.parent;
+            Node<E> grandparent = parent.parent;
 
-        if (parent == null) {
-            return;
-        }
-        if (parent.color == BLACK) {
-            return;
-        }
+            if (parent == grandparent.left) {
+                Node<E> uncle = grandparent.right;
 
-        Node<E> grandparent = parent.parent;
-        if (grandparent == null) {
-            parent.color = BLACK;
-            return;
-        }
-        Node<E> uncle = getUncle(parent);
+                if (uncle != null && uncle.color == RED) {
+                    parent.color = BLACK;
+                    uncle.color = BLACK;
+                    grandparent.color = RED;
+                    node = grandparent;
+                } else {
+                    if (node == parent.right) {
+                        node = parent;
+                        leftRotation(node);
+                    }
+                    parent.color = BLACK;
+                    grandparent.color = RED;
+                    rightRotation(grandparent);
+                }
+            } else {
+                Node<E> uncle = grandparent.left;
 
-        if (uncle != null && uncle.color == RED) {
-            parent.color = BLACK;
-            grandparent.color = RED;
-            uncle.color = BLACK;
-
-            fixInsert(grandparent);
-        }
-        else if (parent == grandparent.left) {
-            if (node == parent.right) {
-                leftRotation(parent);
-                parent = node;
+                if (uncle != null && uncle.color == RED) {
+                    parent.color = BLACK;
+                    uncle.color = BLACK;
+                    grandparent.color = RED;
+                    node = grandparent;
+                } else {
+                    if (node == parent.left) {
+                        node = parent;
+                        rightRotation(node);
+                    }
+                    parent.color = BLACK;
+                    grandparent.color = RED;
+                    leftRotation(grandparent);
+                }
             }
-            rightRotation(grandparent);
-            parent.color = BLACK;
-            grandparent.color = RED;
         }
-        else {
-            if (node == parent.left) {
-                rightRotation(parent);
-                parent = node;
-            }
-            leftRotation(grandparent);
-            parent.color = BLACK;
-            grandparent.color = RED;
-        }
+        root.color = BLACK;
     }
+
     private Node<E> getUncle(Node<E> parent) {
         Node<E> grandparent = parent.parent;
         if (grandparent.left == parent) {
@@ -185,90 +193,60 @@ public class RBtree<E extends Comparable<E>> {
             throw new IllegalStateException("Parent is not a child of its grandparent");
         }
     }
-    private void deleteNode(E value){
-        Node<E> node = this.root;
-        while (node != NIL && node.value != value) {
-            if (value.compareTo(node.value)<0) {
+    public void deleteNode(E value) {
+        Node<E> node = root;
+
+        while (node != NIL && !node.value.equals(value)) {
+            if (value.compareTo(node.value) < 0) {
                 node = node.left;
             } else {
                 node = node.right;
             }
         }
 
-        if (node == NIL) {
-            return;
-        }
+        if (node == NIL) return;
 
-        Node<E> movedUpNode;
-        Color deletedNodeColor;
+        Node<E> nodeToFix;
+        Color deletedColor;
 
-        // Node has zero or one child
         if (node.left == NIL || node.right == NIL) {
-            movedUpNode = deleteNodeWithZeroOrOneChild(node);
-            deletedNodeColor = node.color;
-        } else { // Node has two children
-            // Find minimum node of right subtree ("inorder successor" of current node)
-            Node<E> inOrderSuccessor = findMinimum(node.right);
-
-            // Copy inorder successor's data to current node (keep its color!)
-            node.value = inOrderSuccessor.value;
-
-            // Delete inorder successor just as we would delete a node with 0 or 1 child
-            movedUpNode = deleteNodeWithZeroOrOneChild(inOrderSuccessor);
-            deletedNodeColor = inOrderSuccessor.color;
-        }
-
-        if (deletedNodeColor == BLACK) {
-            fixRedBlackPropertiesAfterDelete(movedUpNode);
-            if (movedUpNode == NIL) {
-                if (movedUpNode.parent == null) {
-                    root = movedUpNode;
-                } else if (movedUpNode.parent.left == movedUpNode) {
-                    movedUpNode.parent.left = null;
-                } else {
-                    movedUpNode.parent.right = null;
-                }
-            }
-        }
-    }
-    private Node<E> deleteNodeWithZeroOrOneChild(Node<E> node) {
-        // Node has ONLY a left child --> replace by its left child
-        // ELSE IF
-        // Node has ONLY a right child --> replace by its right child
-        // ELSE
-        // Node has no child is red -> delete, is black -> NIL
-        if (node.left != null) {
-            if (node.parent.parent == null) {
-                root = node.left;
-            } else if (node.parent.parent.left == node) {
-                node.parent.parent.left = node.left;
-            } else {
-                node.parent.parent.right = node.left;
-            }
-            return node.left;
-        } else if (node.right != null) {
-            if (node.parent.parent == null) {
-                root = node.right;
-            } else if (node.parent.parent.right == node) {
-                node.parent.parent.left = node.right;
-            } else {
-                node.parent.parent.right = node.right;
-            }
-            return node.right;
+            nodeToFix = deleteNodeWithZeroOrOneChild(node);
+            deletedColor = node.color;
         } else {
-            Node<E> newChild = node.color == BLACK ? NIL : null;
-            if (node.parent.parent == null) {
-                root = newChild;
-            } else if (node.parent.parent.right == node) {
-                node.parent.parent.left = newChild;
-            } else {
-                node.parent.parent.right = newChild;
-            }
-            return newChild;
+            Node<E> successor = findMinimum(node.right);
+            node.value = successor.value;
+            nodeToFix = deleteNodeWithZeroOrOneChild(successor);
+            deletedColor = successor.color;
+        }
+
+        if (deletedColor == BLACK) {
+            fixRedBlackPropertiesAfterDelete(nodeToFix);
         }
     }
+
+    private Node<E> deleteNodeWithZeroOrOneChild(Node<E> node) {
+        Node<E> child = node.left != NIL ? node.left : node.right;
+
+        replaceNode(node, child);
+
+        if (child == NIL) child.parent = node.parent;
+
+        return child;
+    }
+
+    private void replaceNode(Node<E> target, Node<E> replacement) {
+        if (target.parent == null) {
+            root = replacement;
+        } else if (target == target.parent.left) {
+            target.parent.left = replacement;
+        } else {
+            target.parent.right = replacement;
+        }
+        replacement.parent = target.parent;
+    }
+
     private Node<E> findMinimum(Node<E> node) {
-        while (node.left != null) {
+        while (node.left != NIL) {
             node = node.left;
         }
         return node;
