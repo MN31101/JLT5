@@ -1,0 +1,98 @@
+Oct 19, 2025 2:41:01 PM lab10.task_3.AdvancedCipherWithMenu <clinit>
+INFO: Система логування ініціалізована
+Oct 19, 2025 2:41:01 PM lab10.task_3.AdvancedCipherWithMenu runProgram
+INFO: ???????? ????????
+Oct 19, 2025 2:44:19 PM lab10.task_3.AdvancedCipherWithMenu <clinit>
+INFO: Система логування ініціалізована
+Oct 19, 2025 2:44:19 PM lab10.task_3.AdvancedCipherWithMenu runProgram
+INFO: ???????? ????????
+Oct 19, 2025 2:53:24 PM lab10.task_3.AdvancedCipherWithMenu <clinit>
+INFO: Система логування ініціалізована
+Oct 19, 2025 2:53:24 PM lab10.task_3.AdvancedCipherWithMenu runProgram
+INFO: ???????? ????????
+Oct 19, 2025 2:54:03 PM lab10.task_3.AdvancedCipherWithMenu <clinit>
+INFO: Система логування ініціалізована
+Oct 19, 2025 2:54:03 PM lab10.task_3.AdvancedCipherWithMenu runProgram
+INFO: ???????? ????????
+Oct 19, 2025 2:54:47 PM lab10.task_3.AdvancedCipherWithMenu <clinit>
+INFO: Система логування ініціалізована
+Oct 19, 2025 2:54:47 PM lab10.task_3.AdvancedCipherWithMenu runProgram
+INFO: ???????? ????????
+Oct 19, 2025 2:54:59 PM lab10.task_3.AdvancedCipherWithMenu <clinit>
+INFO: Система логування ініціалізована
+Oct 19, 2025 2:54:59 PM lab10.task_3.AdvancedCipherWithMenu runProgram
+INFO: ???????? ????????
+Oct 19, 2025 2:55:24 PM lab10.task_3.AdvancedCipherWithMenu <clinit>
+INFO: Система логування ініціалізована
+Oct 19, 2025 2:55:24 PM lab10.task_3.AdvancedCipherWithMenu runProgram
+INFO: ???????? ????????
+Oct 19, 2025 2:55:37 PM lab10.task_3.AdvancedCipherWithMenu encryptFile
+INFO: Початок шифрування файлу: 2
+Oct 19, 2025 2:55:37 PM lab10.task_3.AdvancedCipherWithMenu encryptFile
+FINE: Параметри: вхідний=2, вихідний=3, ключ=52
+Oct 19, 2025 2:55:37 PM lab10.task_3.AdvancedCipherWithMenu encryptFile
+SEVERE: Файл не знайдено: 2
+Oct 19, 2025 2:55:37 PM lab10.task_3.AdvancedCipherWithMenu encryptFileMenu
+SEVERE: Помилка шифрування: 2 (No such file or directory)
+Oct 19, 2025 3:05:03 PM lab10.task_3.AdvancedCipherWithMenu <clinit>
+INFO: Система логування ініціалізована
+Oct 19, 2025 3:05:03 PM lab10.task_3.AdvancedCipherWithMenu runProgram
+INFO: Програму запущено
+Oct 19, 2025 3:05:23 PM lab10.task_3.AdvancedCipherWithMenu <clinit>
+INFO: Система логування ініціалізована
+Oct 19, 2025 3:05:23 PM lab10.task_3.AdvancedCipherWithMenu runProgram
+INFO: Програму запущено
+Oct 19, 2025 3:10:10 PM lab10.task_3.AdvancedCipherWithMenu <clinit>
+INFO: Система логування ініціалізована
+Oct 19, 2025 3:10:10 PM lab10.task_3.AdvancedCipherWithMenu runProgram
+INFO: Програму запущено
+Oct 19, 2025 3:10:17 PM lab10.task_3.AdvancedCipherWithMenu changeLanguage
+INFO: Мову змінено на: English
+Oct 19, 2025 3:10:17 PM lab10.task_3.AdvancedCipherWithMenu changeLanguage
+SEVERE: Не вдалося завантажити мову: en
+Oct 19, 2025 3:12:03 PM lab10.task_3.AdvancedCipherWithMenu <clinit>
+INFO: Система логування ініціалізована
+Oct 19, 2025 3:12:03 PM lab10.task_3.AdvancedCipherWithMenu runProgram
+INFO: Програму запущено
+Oct 19, 2025 3:12:11 PM lab10.task_3.AdvancedCipherWithMenu changeLanguage
+INFO: Мову змінено на: English
+Oct 19, 2025 3:12:11 PM lab10.task_3.AdvancedCipherWithMenu changeLanguage
+INFO: Мову змінено на: English
+Oct 19, 2025 3:12:17 PM lab10.task_3.AdvancedCipherWithMenu changeLanguage
+INFO: Мову змінено на: Ukrainian
+Oct 19, 2025 3:12:17 PM lab10.task_3.AdvancedCipherWithMenu changeLanguage
+INFO: Мову змінено на: Українська
+Oct 19, 2025 3:12:44 PM lab10.task_3.AdvancedCipherWithMenu encryptFile
+INFO: Початок шифрування файлу: /home/mn33101/Desktop/KPI/java_subj/labs/src/main/resources/lab5/file1.txt
+Oct 19, 2025 3:12:44 PM lab10.task_3.AdvancedCipherWithMenu encryptFile
+FINE: Параметри: вхідний=/home/mn33101/Desktop/KPI/java_subj/labs/src/main/resources/lab5/file1.txt, вихідний=/home/mn33101/Desktop/KPI/java_subj/labs/src/main/resources/lab5/cryptedFile.txt, ключ=92
+Oct 19, 2025 3:12:44 PM lab10.task_3.AdvancedCipherWithMenu encryptFile
+FINE: Оброблено байтів: 100
+Oct 19, 2025 3:12:44 PM lab10.task_3.AdvancedCipherWithMenu encryptFile
+FINE: Оброблено байтів: 200
+Oct 19, 2025 3:12:44 PM lab10.task_3.AdvancedCipherWithMenu encryptFile
+INFO: Файл зашифровано: /home/mn33101/Desktop/KPI/java_subj/labs/src/main/resources/lab5/cryptedFile.txt (244 байт)
+Oct 19, 2025 3:12:44 PM lab10.task_3.AdvancedCipherWithMenu encryptFile
+WARNING: Використано Caesar cipher!
+Oct 19, 2025 3:13:19 PM lab10.task_3.AdvancedCipherWithMenu decryptFile
+INFO: Початок дешифрування файлу: /home/mn33101/Desktop/KPI/java_subj/labs/src/main/resources/lab5/cryptedFile.txt
+Oct 19, 2025 3:13:19 PM lab10.task_3.AdvancedCipherWithMenu decryptFile
+FINE: Параметри: вхідний=/home/mn33101/Desktop/KPI/java_subj/labs/src/main/resources/lab5/cryptedFile.txt, вихідний=/home/mn33101/Desktop/KPI/java_subj/labs/src/main/resources/lab5/decryptedFile, ключ=107
+Oct 19, 2025 3:13:19 PM lab10.task_3.AdvancedCipherWithMenu decryptFile
+FINE: Оброблено байтів: 100
+Oct 19, 2025 3:13:19 PM lab10.task_3.AdvancedCipherWithMenu decryptFile
+FINE: Оброблено байтів: 200
+Oct 19, 2025 3:13:19 PM lab10.task_3.AdvancedCipherWithMenu decryptFile
+INFO: Файл дешифровано: /home/mn33101/Desktop/KPI/java_subj/labs/src/main/resources/lab5/decryptedFile (244 байт)
+Oct 19, 2025 3:14:17 PM lab10.task_3.AdvancedCipherWithMenu decryptFile
+INFO: Початок дешифрування файлу: /home/mn33101/Desktop/KPI/java_subj/labs/src/main/resources/lab5/cryptedFile.txt
+Oct 19, 2025 3:14:17 PM lab10.task_3.AdvancedCipherWithMenu decryptFile
+FINE: Параметри: вхідний=/home/mn33101/Desktop/KPI/java_subj/labs/src/main/resources/lab5/cryptedFile.txt, вихідний=/home/mn33101/Desktop/KPI/java_subj/labs/src/main/resources/lab5/decryptedFile, ключ=92
+Oct 19, 2025 3:14:17 PM lab10.task_3.AdvancedCipherWithMenu decryptFile
+FINE: Оброблено байтів: 100
+Oct 19, 2025 3:14:17 PM lab10.task_3.AdvancedCipherWithMenu decryptFile
+FINE: Оброблено байтів: 200
+Oct 19, 2025 3:14:17 PM lab10.task_3.AdvancedCipherWithMenu decryptFile
+INFO: Файл дешифровано: /home/mn33101/Desktop/KPI/java_subj/labs/src/main/resources/lab5/decryptedFile (244 байт)
+Oct 19, 2025 3:14:30 PM lab10.task_3.AdvancedCipherWithMenu runProgram
+INFO: Програму завершено

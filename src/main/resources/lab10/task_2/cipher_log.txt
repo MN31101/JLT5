@@ -1,0 +1,44 @@
+Oct 19, 2025 2:16:33 PM lab10.task_2.AdvancedCipher <clinit>
+INFO: Система логування ініціалізована
+Oct 19, 2025 2:16:34 PM lab10.task_2.AdvancedCipher encryptFile
+INFO: Початок шифрування файлу: /home/mn33101/Desktop/KPI/java_subj/labs/src/main/resources/lab5/file1.txt
+Oct 19, 2025 2:16:34 PM lab10.task_2.AdvancedCipher encryptFile
+FINE: Параметри: вхідний файл=/home/mn33101/Desktop/KPI/java_subj/labs/src/main/resources/lab5/file1.txt, вихідний файл=/home/mn33101/Desktop/KPI/java_subj/labs/src/main/resources/lab5/cryptedFile.txt, ключ=5
+Oct 19, 2025 2:16:34 PM lab10.task_2.AdvancedCipher encryptFile
+INFO: Файл успішно зашифровано: /home/mn33101/Desktop/KPI/java_subj/labs/src/main/resources/lab5/cryptedFile.txt
+Oct 19, 2025 2:16:34 PM lab10.task_2.AdvancedCipher encryptFile
+INFO: Всього оброблено байтів: 36
+Oct 19, 2025 2:16:34 PM lab10.task_2.AdvancedCipher decryptFile
+INFO: Початок дешифрування файлу: /home/mn33101/Desktop/KPI/java_subj/labs/src/main/resources/lab5/cryptedFile.txt
+Oct 19, 2025 2:16:34 PM lab10.task_2.AdvancedCipher decryptFile
+FINE: Параметри: вхідний файл=/home/mn33101/Desktop/KPI/java_subj/labs/src/main/resources/lab5/cryptedFile.txt, вихідний файл=/home/mn33101/Desktop/KPI/java_subj/labs/src/main/resources/lab5/decryptedFile, ключ=5
+Oct 19, 2025 2:16:34 PM lab10.task_2.AdvancedCipher decryptFile
+INFO: Файл успішно дешифровано: /home/mn33101/Desktop/KPI/java_subj/labs/src/main/resources/lab5/decryptedFile
+Oct 19, 2025 2:16:34 PM lab10.task_2.AdvancedCipher decryptFile
+INFO: Всього оброблено байтів: 36
+Oct 19, 2025 2:19:42 PM lab10.task_2.AdvancedCipher <clinit>
+INFO: Система логування ініціалізована
+Oct 19, 2025 2:19:42 PM lab10.task_2.AdvancedCipher encryptFile
+INFO: Початок шифрування файлу: /home/mn33101/Desktop/KPI/java_subj/labs/src/main/resources/lab5/file1.txt
+Oct 19, 2025 2:19:42 PM lab10.task_2.AdvancedCipher encryptFile
+FINE: Параметри: вхідний файл=/home/mn33101/Desktop/KPI/java_subj/labs/src/main/resources/lab5/file1.txt, вихідний файл=/home/mn33101/Desktop/KPI/java_subj/labs/src/main/resources/lab5/cryptedFile.txt, ключ=5
+Oct 19, 2025 2:19:42 PM lab10.task_2.AdvancedCipher encryptFile
+FINE: Оброблено байтів: 100
+Oct 19, 2025 2:19:42 PM lab10.task_2.AdvancedCipher encryptFile
+FINE: Оброблено байтів: 200
+Oct 19, 2025 2:19:42 PM lab10.task_2.AdvancedCipher encryptFile
+INFO: Файл успішно зашифровано: /home/mn33101/Desktop/KPI/java_subj/labs/src/main/resources/lab5/cryptedFile.txt
+Oct 19, 2025 2:19:42 PM lab10.task_2.AdvancedCipher encryptFile
+INFO: Всього оброблено байтів: 244
+Oct 19, 2025 2:19:42 PM lab10.task_2.AdvancedCipher decryptFile
+INFO: Початок дешифрування файлу: /home/mn33101/Desktop/KPI/java_subj/labs/src/main/resources/lab5/cryptedFile.txt
+Oct 19, 2025 2:19:42 PM lab10.task_2.AdvancedCipher decryptFile
+FINE: Параметри: вхідний файл=/home/mn33101/Desktop/KPI/java_subj/labs/src/main/resources/lab5/cryptedFile.txt, вихідний файл=/home/mn33101/Desktop/KPI/java_subj/labs/src/main/resources/lab5/decryptedFile, ключ=5
+Oct 19, 2025 2:19:42 PM lab10.task_2.AdvancedCipher decryptFile
+FINE: Оброблено байтів: 100
+Oct 19, 2025 2:19:42 PM lab10.task_2.AdvancedCipher decryptFile
+FINE: Оброблено байтів: 200
+Oct 19, 2025 2:19:42 PM lab10.task_2.AdvancedCipher decryptFile
+INFO: Файл успішно дешифровано: /home/mn33101/Desktop/KPI/java_subj/labs/src/main/resources/lab5/decryptedFile
+Oct 19, 2025 2:19:42 PM lab10.task_2.AdvancedCipher decryptFile
+INFO: Всього оброблено байтів: 244
